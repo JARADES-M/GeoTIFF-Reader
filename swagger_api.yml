@@ -10,7 +10,6 @@ paths:
       description: |
         Calculates vegetation cover and some geographical information for a 
         given file in the server (preexisting).
-      operationId: app.get_vegetation_cover
       responses:
         200:
           description: Successful response
