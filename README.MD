@@ -1,3 +1,4 @@
+[![GeoTIFF-Reader App](https://github.com/JARADES-M/GeoTIFF-Reader/actions/workflows/python-app.yml/badge.svg)](https://github.com/JARADES-M/GeoTIFF-Reader/actions/workflows/python-app.yml)
 # Desafio Strider GIS
 ## GeoTIFF Reader
 
