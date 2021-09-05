@@ -8,7 +8,6 @@ def get_default_image_info():
 
     with rio.open(DEFAULT_IMAGE_PATH) as dataset:
 
-        # https://rasterio.readthedocs.io/en/latest/api/rasterio.rio.options.html
         centroid = {"type":"Point", "coordinates": [dataset.lnglat()]}
 
         width = dataset.bounds[2] - dataset.bounds[0]
@@ -20,7 +19,7 @@ def get_default_image_info():
             file_name=dataset.name,
             cover=(ndvi.sum() / ndvi.size),
             centroid=centroid,
-            #area=(dataset.width * dataset.height),
+            #area=(dataset.width * dataset.height), TODO check
             area=(width * height),
             local_time=""
             )

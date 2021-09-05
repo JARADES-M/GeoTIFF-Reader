@@ -61,3 +61,9 @@ python app.py
 - [201 - Working with geotiff files using rasterio in python (also quick demo of NDVI calculation)](https://www.youtube.com/watch?v=ieyODuIjXp4)
 - [Working with Raster Datasets](https://geohackweek.github.io/raster/04-workingwithrasters/)
 - [NDVI Calculation](https://developers.planet.com/tutorials/calculate-ndvi/)
+
+### Deliberations
+> The following aspects were not accounted when developing the solucion
+* Security (Authentication, Authorization, Data Protection, Etc..)
+* Performance (Thecnics to reduce memory or processing usage for example)
+* Logs, Monitoring, Alerting Etc..
