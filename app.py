@@ -1,22 +1,24 @@
 import os
+from flask import Flask
+from flask_restful import Resource, Api
 from services import image_processor
-from flask import (
-    Flask, 
-    jsonify
-)
 
-PORT = 5000 if os.getenv('PORT') is None else os.getenv('PORT')
+PORT = 5000 if os.getenv("PORT") is None else os.getenv("PORT")
 
 app = Flask(__name__)
+api = Api(app)
 
-@app.route('/vegetation-cover', methods=['GET'])
-def get_vegetation_cover():
-    """
-    Get information about an specific GeoTIFF file.
-    """
 
-    cover_info = image_processor.get_default_image_info()
-    return jsonify(cover_info.getInfo())
+class VegetarionCover(Resource):
+    def get(self):
+        """
+        Get information about an specific GeoTIFF file.
+        """
+        cover_info = image_processor.get_default_image_info()
+        return cover_info.toObject(), 200
 
-if __name__ == '__main__':
+
+api.add_resource(VegetarionCover, "/vegetation-cover")
+
+if __name__ == "__main__":
     app.run(debug=True, port=PORT)

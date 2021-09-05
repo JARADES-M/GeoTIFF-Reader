@@ -3,12 +3,12 @@ install:
 	pip install -r requirements.txt
 
 test:
-	echo "Yet to be done!"
+	python -m pytest -vv --cov=services tests/test_image_processor.py
 
 format:
-	echo "Yet to be done!"
+	black *.py services/*.py models/*.py
 
 lint:
-	echo "Yet to be done!"
+	pylint --disable=R,C,W,E *.py services/*.py models/*.py
 
 all: install lint test

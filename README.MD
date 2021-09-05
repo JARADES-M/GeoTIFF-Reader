@@ -66,4 +66,7 @@ python app.py
 > The following aspects were not accounted when developing the solucion
 * Security (Authentication, Authorization, Data Protection, Etc..)
 * Performance (Thecnics to reduce memory or processing usage for example)
-* Logs, Monitoring, Alerting Etc..
+* Project Size (Using the [Google Time Zone API](https://developers.google.com/maps/documentation/timezone/overview#maps_http_timezone_dstoffset-py) instead of importing a lib for example)
+* Tests, Unit coverage, Integration
+* Logs, Monitoring, Alerting, Etc..
+* Versioning (API and libs)

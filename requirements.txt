@@ -3,5 +3,7 @@ pytest
 pytest-cov
 black
 flask
+flask_restful
 numpy
 rasterio
+timezonefinder[numba]
