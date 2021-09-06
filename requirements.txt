@@ -6,4 +6,5 @@ flask
 flask_restful
 numpy
 rasterio
+python-dateutil
 timezonefinder[numba]

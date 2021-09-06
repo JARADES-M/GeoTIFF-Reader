@@ -3,7 +3,7 @@ install:
 	pip install -r requirements.txt
 
 test:
-	python -m pytest -vv --cov=services tests/test_image_processor.py tests/test_app.py
+	python -m pytest -vv --cov=services --cov=main tests/test_image_processor.py tests/test_main.py
 
 format:
 	black *.py services/*.py models/*.py
