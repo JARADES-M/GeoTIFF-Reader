@@ -29,3 +29,9 @@ jobs:
     - name: Test with pytest
       run: |
         make test
+    - name: Deploy an App Engine app
+      uses: google-github-actions/deploy-appengine@v0.1.0
+      with:
+        project: ${{ secrets.gcp_project }}
+        deliverables: app.yaml
+        credentials: ${{ secrets.gcp_credentials }}
