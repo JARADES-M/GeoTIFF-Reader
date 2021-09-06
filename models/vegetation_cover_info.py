@@ -16,7 +16,7 @@ class VegetationCoverInfo:
         self.cover = cover
         self.area = area
         self.centroid = centroid
-        self.local_time = local_time
+        self.local_time = local_time[0]
 
     def toObject(self) -> "dict[str, Any]":
 

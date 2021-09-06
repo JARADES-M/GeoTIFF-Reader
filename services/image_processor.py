@@ -29,7 +29,7 @@ def get_default_image_info() -> VegetationCoverInfo:
             cover=(ndvi.sum() / ndvi.size),
             centroid=centroid,
             area=(width * height),
-            local_time=local_time,
+            local_time=local_time
         )
 
 
