@@ -29,9 +29,22 @@ jobs:
     - name: Test with pytest
       run: |
         make test
-    - name: Deploy an App Engine app
-      uses: google-github-actions/deploy-appengine@v0.1.0
+
+  deploy:
+    name: Deploying to Google Cloud
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Deploy to App Engine
+      id: deploy
+      uses: google-github-actions/deploy-appengine@v0.2.0
       with:
-        project: ${{ secrets.gcp_project }}
-        deliverables: app.yaml
-        credentials: ${{ secrets.gcp_credentials }}
+        deliverables: app.yml
+        project_id: ${{ secrets.GCP_PROJECT }}
+        credentials: ${{ secrets.GCP_CREDENTIALS }}
+
+    - name: Test
+      run: curl "${{ steps.deploy.outputs.url }}"
