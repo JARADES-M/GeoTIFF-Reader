@@ -31,6 +31,7 @@ jobs:
         make test
 
   deploy:
+    needs: build
     name: Deploying to Google Cloud
     runs-on: ubuntu-latest
     
