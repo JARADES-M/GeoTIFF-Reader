@@ -3,6 +3,7 @@ from services import image_processor
 def test_get_local_datetime_from_filename_success():
     file_name = '319567_2331703_2016-12-07_0c0b-20161207T151953Z.tif'
     expected = '2016-12-07T13:19:53-02:00'
+    # Daylight Saving Time from Sunday, October 16 to Saturday, February 18, 2017
     result = image_processor.get_local_datetime_from_filename(file_name, -47.597228921551284, -15.858576386589299)
     assert result == expected
 

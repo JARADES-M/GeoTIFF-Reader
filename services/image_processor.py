@@ -3,7 +3,7 @@ from models.vegetation_cover_info import VegetationCoverInfo
 import rasterio as rio
 import numpy as np
 from datetime import datetime
-from dateutil import tz
+import pytz
 from timezonefinder import TimezoneFinder
 
 DEFAULT_IMAGE_PATH = r"./images/319567_2331703_2016-12-07_0c0b-20161207T151953Z.tif"
@@ -21,15 +21,15 @@ def get_default_image_info() -> VegetationCoverInfo:
 
         ndvi = get_ndvi_from_dataset(dataset=dataset)
 
-        local_time=get_local_datetime_from_filename(
+        local_datetime=get_local_datetime_from_filename(
             filename=dataset.name, lng=coordinates[0], lat=coordinates[1]),
 
         return VegetationCoverInfo(
-            file_name=dataset.name,
+            filename=dataset.name,
             cover=(ndvi.sum() / ndvi.size),
             centroid=centroid,
             area=(width * height),
-            local_time=local_time
+            local_datetime=local_datetime
         )
 
 
@@ -43,9 +43,10 @@ def get_ndvi_from_dataset(dataset) -> float:
 
 def get_local_datetime_from_filename(filename: str, lng: float, lat: float) -> str:
 
-    to_zone =  tz.gettz(get_timezone_from_lng_lat(lng, lat))
+    # Assuming the filename is standard
+    to_zone =  pytz.timezone(get_timezone_from_lng_lat(lng, lat))
     str_utc = filename.split("-")[-1].split(".")[0]
-    utc = datetime.strptime(str_utc, "%Y%m%dT%H%M%SZ")
+    utc = datetime.strptime(str_utc, "%Y%m%dT%H%M%SZ").replace(tzinfo=pytz.UTC)
     return utc.astimezone(to_zone).isoformat()
 
 
