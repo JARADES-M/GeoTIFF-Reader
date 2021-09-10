@@ -1,8 +1,7 @@
 [![GeoTIFF-Reader App](https://github.com/JARADES-M/GeoTIFF-Reader/actions/workflows/python-app.yml/badge.svg)](https://github.com/JARADES-M/GeoTIFF-Reader/actions/workflows/python-app.yml)
-# Desafio Strider GIS
-## GeoTIFF Reader
+# GeoTIFF Reader
 
-> ### PT-BR Description
+> #### PT-BR Description
 A imagem [319567_2331703_2016-12-07_0c0b-20161207T151953Z.tif](images/319567_2331703_2016-12-07_0c0b-20161207T151953Z.tif) é uma imagem de 
 satélite multiespectral georreferenciada em formato GeoTIFF obtida pelo 
 microssatélite ID 0c0b da constelação PlanetScope em 7 de dezembro de 2016, às 15h19m53s UTC.
@@ -67,7 +66,7 @@ python main.py
 ### Deliberations
 #### Some of the aspects that were not accounted for when developing the solucion are the following:
 * Security (Authentication, Authorization, Data Protection, Etc..)
-* Performance (Techniques to reduce memory or processing usage for example)
+* Performance (Caching or techniques to reduce memory or processing usage for example)
 * Project Size (Using the [Google Time Zone API](https://developers.google.com/maps/documentation/timezone/overview#maps_http_timezone_dstoffset-py) instead of importing a lib for example)
 * Tests, Unit coverage, Integration
 * The complete CI/CD Process and Patterns
