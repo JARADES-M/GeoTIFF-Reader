@@ -64,7 +64,7 @@ python main.py
 > The service would be available via this GET endpoint `https://<app-engine-host>/vegetation-cover`
 
 ### Deliberations
-#### Some of the aspects that were not accounted for when developing the solucion are the following:
+#### Some of the aspects that were not accounted for when developing the solution are the following:
 * Security (Authentication, Authorization, Data Protection, Etc..)
 * Performance (Caching or techniques to reduce memory or processing usage for example)
 * Project Size (Using the [Google Time Zone API](https://developers.google.com/maps/documentation/timezone/overview#maps_http_timezone_dstoffset-py) instead of importing a lib for example)
