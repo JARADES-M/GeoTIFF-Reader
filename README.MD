@@ -54,14 +54,14 @@ python main.py
 > The service will be available via [localhost:5000/vegetation-cover](http://localhost:5000/vegetation-cover).
 > You can also set a value to an env variable named `PORT`, to be the service port number.
 
-### CI/CD
+### CI/CD (`CD disabled`)
 
 #### **Build** --> **Deploy** (GCP App Engine)
 
 - The build and deploy are triggered automatically when there is a commit or a pull request to the master branch.
 - The process will abort with error should an step fail (A failing unit test for example)
 
-> The service is available via this GET endpoint [https://geotiff-reader.uc.r.appspot.com/vegetation-cover](https://geotiff-reader.uc.r.appspot.com/vegetation-cover)
+> The service would be available via this GET endpoint `https://<app-engine-host>/vegetation-cover`
 
 ### Deliberations
 #### Some of the aspects that were not accounted for when developing the solucion are the following:

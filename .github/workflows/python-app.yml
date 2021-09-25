@@ -1,10 +1,9 @@
 name: GeoTIFF-Reader App
 
 on:
-  push:
-    branches: [ master ]
   pull_request:
     branches: [ master ]
+    types: [ closed ]
 
 jobs:
   build:
@@ -31,22 +30,22 @@ jobs:
       run: |
         make test
 
-  deploy:
-    needs: build
-    name: Deploy (GCP App Engine)
-    runs-on: ubuntu-latest
-    
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-
-    - name: Deploy to App Engine
-      id: deploy
-      uses: google-github-actions/deploy-appengine@v0.2.0
-      with:
-        deliverables: app.yml
-        project_id: ${{ secrets.GCP_PROJECT }}
-        credentials: ${{ secrets.GCP_CREDENTIALS }}
-
-    - name: Test
-      run: curl "${{ steps.deploy.outputs.url }}"
+#  deploy:
+#    needs: build
+#    name: Deploy (GCP App Engine)
+#    runs-on: ubuntu-latest
+#    
+#    steps:
+#    - name: Checkout
+#      uses: actions/checkout@v2
+#
+#    - name: Deploy to App Engine
+#      id: deploy
+#      uses: google-github-actions/deploy-appengine@v0.2.0
+#      with:
+#        deliverables: app.yml
+#        project_id: ${{ secrets.GCP_PROJECT }}
+#        credentials: ${{ secrets.GCP_CREDENTIALS }}
+#
+#    - name: Test
+#      run: curl "${{ steps.deploy.outputs.url }}"
